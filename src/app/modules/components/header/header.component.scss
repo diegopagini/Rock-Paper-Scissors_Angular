@@ -1,0 +1,9 @@
+@import "../../../styles/base";
+
+.header {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+
+  @include center;
+}

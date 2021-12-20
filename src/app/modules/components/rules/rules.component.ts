@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/shared/shared-components/modal/modal.component';
 
 @Component({
   selector: 'app-rules',
   templateUrl: './rules.component.html',
-  styleUrls: ['./rules.component.scss']
+  styleUrls: ['./rules.component.scss'],
 })
-export class RulesComponent implements OnInit {
+export class RulesComponent {
+  constructor(private dialog: MatDialog) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  openRules(): void {
+    this.dialog.open(ModalComponent, {});
   }
-
 }

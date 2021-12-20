@@ -1,0 +1,13 @@
+@import "../../styles/base";
+
+.game {
+  color: $main-color;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1440px;
+  overflow: hidden;
+  position: relative;
+}

@@ -1,0 +1,15 @@
+@import "../../../styles/base";
+
+.rules {
+  bottom: 3rem;
+  position: absolute;
+  right: 2rem;
+
+  .btn {
+    background-color: transparent;
+    border: 1px solid $main-color;
+    color: $main-color;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+}
