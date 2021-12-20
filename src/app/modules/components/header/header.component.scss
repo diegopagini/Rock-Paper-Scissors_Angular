@@ -1,9 +1,25 @@
 @import "../../../styles/base";
 
 .header {
+  align-items: center;
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
   position: absolute;
   top: 2rem;
   width: 100%;
 
-  @include center;
+  .game {
+    text-transform: uppercase;
+
+    h2 {
+      cursor: pointer;
+      transition: all 1s;
+      &:hover {
+        color: darken($main-color, 10%);
+      }
+    }
+  }
 }
