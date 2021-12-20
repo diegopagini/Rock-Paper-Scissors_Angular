@@ -4,6 +4,7 @@
   align-items: center;
   border: 1px solid $main-color;
   border-radius: 5px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -15,11 +16,29 @@
     text-transform: uppercase;
 
     h2 {
-      cursor: pointer;
       transition: all 1s;
       &:hover {
         color: darken($main-color, 10%);
       }
+    }
+  }
+
+  .score {
+    align-items: center;
+    display: flex;
+    background-color: $main-color;
+    border-radius: 5px;
+    color: $secondary-color;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+
+    p {
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 2rem;
+      text-transform: uppercase;
     }
   }
 }
