@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
-import { Observable } from 'rxjs';
+import { delay, Observable, tap } from 'rxjs';
 import { Option } from '../../models/option.interface';
 import { GameService } from '../../services/game.service';
 
@@ -9,26 +14,36 @@ import { GameService } from '../../services/game.service';
   templateUrl: './step2.component.html',
   styleUrls: ['./step2.component.scss'],
 })
-export class Step2Component implements OnInit {
+export class Step2Component implements OnInit, AfterViewChecked {
   playerSelection$: Observable<Option>;
   machineSelection$: Observable<Option>;
   result$: Observable<string>;
 
-  constructor(private gameService: GameService, private stepper: MatStepper) {}
+  constructor(
+    private gameService: GameService,
+    private stepper: MatStepper,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.playerSelection$ = this.gameService.getPlayerSelection();
-    setTimeout(() => {
-      this.machineSelection$ = this.gameService.getMachineSelection();
 
-      this.result$ = this.gameService.getWinner(
-        this.playerSelection$,
-        this.machineSelection$
-      );
-    }, 5000);
+    this.machineSelection$ = this.gameService.getMachineSelection().pipe(
+      delay(5000),
+      tap(() => {
+        setTimeout(() => {
+          this.stepper.next();
+        }, 2500);
+      })
+    );
 
-    setTimeout(() => {
-      this.stepper.next();
-    }, 7500);
+    this.result$ = this.gameService.getWinner(
+      this.playerSelection$,
+      this.machineSelection$
+    );
+  }
+
+  ngAfterViewChecked(): void {
+    this.cdRef.detectChanges();
   }
 }
