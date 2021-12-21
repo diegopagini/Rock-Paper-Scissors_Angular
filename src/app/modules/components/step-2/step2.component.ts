@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { Option } from '../../models/option.interface';
 import { GameService } from '../../services/game.service';
@@ -13,16 +14,21 @@ export class Step2Component implements OnInit {
   machineSelection$: Observable<Option>;
   result$: Observable<string>;
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private stepper: MatStepper) {}
 
   ngOnInit(): void {
     this.playerSelection$ = this.gameService.getPlayerSelection();
     setTimeout(() => {
       this.machineSelection$ = this.gameService.getMachineSelection();
+
       this.result$ = this.gameService.getWinner(
         this.playerSelection$,
         this.machineSelection$
       );
     }, 5000);
+
+    setTimeout(() => {
+      this.stepper.next();
+    }, 7500);
   }
 }

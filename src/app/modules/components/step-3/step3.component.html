@@ -1,1 +1,15 @@
-<p>step3 works!</p>
+<section class="step-3">
+  <div>
+    <p>
+      Your current score is: <strong>{{ score$ | async }}</strong>
+    </p>
+  </div>
+
+  <div class="options">
+    <p>do you want to play again?</p>
+    <div class="btn-container">
+      <button mat-raised-button (click)="handleYes()">Yes</button>
+      <button mat-raised-button (click)="handleNo()">No</button>
+    </div>
+  </div>
+</section>
