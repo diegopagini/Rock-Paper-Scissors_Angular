@@ -1,8 +1,13 @@
+<div class="result">
+  <h3 *ngIf="result$ | async as result">{{ result }}</h3>
+</div>
+
 <section class="step-2">
   <!-- player selection -->
   <app-option
     *ngIf="playerSelection$ | async as playerOption"
     [option]="playerOption"
+    [player]="'Your selection'"
   ></app-option>
 
   <!-- machine selection -->
@@ -12,9 +17,10 @@
       else waitingForMachineOption
     "
     [option]="machineSelection"
+    [player]="'Machine'"
   ></app-option>
 </section>
 
 <ng-template #waitingForMachineOption>
-  <div>hola</div>
+  <app-waiting [player]="'Machine'"></app-waiting>
 </ng-template>

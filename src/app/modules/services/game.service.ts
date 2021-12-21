@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable, of } from 'rxjs';
 import { Option } from '../models/option.interface';
 
 @Injectable({
@@ -41,5 +41,16 @@ export class GameService {
   getMachineSelection(): Observable<Option> {
     const random = Math.floor(Math.random() * 3);
     return of(this.gameOptions[random]);
+  }
+
+  getWinner(
+    playerSelection: Observable<Option>,
+    machineSelection: Observable<Option>
+  ): Observable<string> {
+    return combineLatest([playerSelection, machineSelection]).pipe(
+      map(([obs1, obs2]) => {
+        return 'winner';
+      })
+    );
   }
 }

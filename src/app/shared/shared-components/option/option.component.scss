@@ -1,5 +1,10 @@
 @import "../../../styles/base";
 
+.player {
+  @include center;
+  text-transform: uppercase;
+}
+
 .option {
   background-color: $main-color;
   border: 1rem solid #000;

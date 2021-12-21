@@ -1,5 +1,18 @@
 @import "../../../styles/base";
 
+.result {
+  margin: 3rem;
+  min-height: 57px;
+  text-transform: uppercase;
+  @include center;
+
+  h3 {
+    border: 1px solid $main-color;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+}
+
 .step-2 {
   flex-wrap: wrap;
   margin: 3rem auto;
@@ -7,6 +20,7 @@
   @include center;
 
   @media (min-width: 991px) {
-    max-width: 530px;
+    justify-content: space-between;
+    max-width: 600px;
   }
 }
