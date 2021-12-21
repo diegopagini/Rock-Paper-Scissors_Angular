@@ -1,0 +1,12 @@
+@import "../../../styles/base";
+
+.step-1 {
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 320px;
+  @include center;
+
+  @media (min-width: 991px) {
+    max-width: 530px;
+  }
+}

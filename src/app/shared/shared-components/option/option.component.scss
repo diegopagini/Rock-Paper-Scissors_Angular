@@ -1,0 +1,28 @@
+@import "../../../styles/base";
+
+.option {
+  background-color: $main-color;
+  border: 1rem solid #000;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 120px;
+  margin: 0.5rem;
+  padding: 1rem;
+  transition: all 0.5s;
+  width: 120px;
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    border-width: 1.5rem;
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 991px) {
+    height: 200px;
+    margin: 2rem;
+    padding: 2.5rem;
+    width: 200px;
+  }
+}

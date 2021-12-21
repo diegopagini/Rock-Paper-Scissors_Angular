@@ -1,0 +1,14 @@
+@import "../../../styles/base";
+
+:host {
+  .stepper {
+    top: 10rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  .mat-stepper-horizontal {
+    background-color: transparent;
+  }
+}

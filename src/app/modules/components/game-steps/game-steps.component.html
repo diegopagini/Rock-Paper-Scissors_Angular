@@ -1,1 +1,14 @@
-<p>game-steps works!</p>
+<mat-stepper class="stepper" [linear]="true">
+  <mat-step [editable]="false">
+    <app-step1></app-step1>
+  </mat-step>
+  <mat-step [editable]="false">
+    <app-step2></app-step2>
+  </mat-step>
+  <mat-step [editable]="false">
+    <app-step3></app-step3>
+  </mat-step>
+  <mat-step [editable]="false">
+    <app-step4></app-step4>
+  </mat-step>
+</mat-stepper>

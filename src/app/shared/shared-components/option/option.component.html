@@ -1,0 +1,8 @@
+<div
+  *ngIf="option"
+  class="option"
+  [ngStyle]="{ 'border-color': option.gradient }"
+  (click)="selectOption()"
+>
+  <img [src]="option.img" [alt]="option.name" />
+</div>
