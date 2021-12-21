@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Option } from '../models/option.interface';
 
 @Injectable({
@@ -36,5 +36,10 @@ export class GameService {
 
   getPlayerSelection(): Observable<Option> {
     return this.playerOption;
+  }
+
+  getMachineSelection(): Observable<Option> {
+    const random = Math.floor(Math.random() * 3);
+    return of(this.gameOptions[random]);
   }
 }

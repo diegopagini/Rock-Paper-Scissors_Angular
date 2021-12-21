@@ -1,1 +1,20 @@
-<p>step2 works!</p>
+<section class="step-2">
+  <!-- player selection -->
+  <app-option
+    *ngIf="playerSelection$ | async as playerOption"
+    [option]="playerOption"
+  ></app-option>
+
+  <!-- machine selection -->
+  <app-option
+    *ngIf="
+      machineSelection$ | async as machineSelection;
+      else waitingForMachineOption
+    "
+    [option]="machineSelection"
+  ></app-option>
+</section>
+
+<ng-template #waitingForMachineOption>
+  <div>hola</div>
+</ng-template>
