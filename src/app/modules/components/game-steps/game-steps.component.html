@@ -1,11 +1,17 @@
-<mat-stepper class="stepper">
+<mat-stepper orientation="horizontal" class="stepper" [linear]="true">
   <mat-step aria-disabled="true" [editable]="false">
-    <app-step1></app-step1>
+    <ng-template matStepContent>
+      <app-step1></app-step1>
+    </ng-template>
   </mat-step>
   <mat-step aria-disabled="true" [editable]="false">
-    <app-step2></app-step2>
+    <ng-template matStepContent>
+      <app-step2></app-step2>
+    </ng-template>
   </mat-step>
   <mat-step aria-disabled="true" [editable]="false">
-    <app-step3></app-step3>
+    <ng-template matStepContent>
+      <app-step3></app-step3>
+    </ng-template>
   </mat-step>
 </mat-stepper>
