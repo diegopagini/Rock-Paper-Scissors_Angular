@@ -1,5 +1,8 @@
 <section class="step-1">
   <ng-container *ngFor="let option of options">
-    <app-option [option]="option"></app-option>
+    <app-option
+      (optionEmitter)="selectPlayerOption($event)"
+      [option]="option"
+    ></app-option>
   </ng-container>
 </section>

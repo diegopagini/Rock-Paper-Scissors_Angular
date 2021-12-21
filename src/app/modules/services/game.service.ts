@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Option } from '../models/option.interface';
 
 @Injectable({
@@ -22,8 +23,18 @@ export class GameService {
       gradient: 'hsl(349, 71%, 52%)',
     },
   ];
+  private subject = new BehaviorSubject<Option>({});
+  private playerOption = this.subject.asObservable();
 
-  get options(): Option[] {
+  getOptions(): Option[] {
     return this.gameOptions;
+  }
+
+  selectPlayerOption(option: Option): void {
+    this.subject.next(option);
+  }
+
+  getPlayerSelection(): Observable<Option> {
+    return this.playerOption;
   }
 }

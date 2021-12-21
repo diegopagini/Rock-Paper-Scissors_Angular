@@ -1,5 +1,5 @@
 export interface Option {
-  img: string;
-  name: string;
-  gradient: string;
+  img?: string;
+  name?: string;
+  gradient?: string;
 }
